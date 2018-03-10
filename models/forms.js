@@ -5,10 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING
   }, {});
   forms.associate = function(models) {
-    // associations can be defined here
+    forms.hasMany(models.questions);
   };
 
-  forms.getAllForms = () => forms.findAll();
+  forms.createForm = (formTitle) =>  forms.create({ title: formTitle })
   
+
+  forms.getAllForms = () => forms.findAll();
+
   return forms;
 };
