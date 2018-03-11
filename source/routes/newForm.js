@@ -13,7 +13,7 @@ module.exports = [{
       Promise.all(promiseArray).then(() => {
         response({
           formCreated: true,
-        });
+        }).code(201);
       });
     });
   },

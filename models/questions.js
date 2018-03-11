@@ -16,5 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     isRequired,
   });
 
+  questions.getAllQuestions = formId => questions.findAll({ where: { formId } });
+
   return questions;
 };
