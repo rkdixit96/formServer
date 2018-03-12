@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     isRequired: DataTypes.BOOLEAN,
   }, {});
   questions.associate = function (models) {
-    // associations can be defined here
+    questions.hasMany(models.answers);
   };
 
   questions.createQuestion = (formId, questionText, answerType, isRequired) => questions.create({
