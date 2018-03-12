@@ -9,12 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     questions.hasMany(models.answers);
   };
 
-  questions.createQuestion = (formId, questionText, answerType, isRequired) => questions.create({
-    formId,
-    questionText,
-    answerType,
-    isRequired,
-  });
+  questions.createQuestions = questionArray => questions.bulkCreate(questionArray);
+
+  questions.deleteAllQuestions = () => questions.destroy({ truncate: true });
 
   questions.getAllQuestions = formId => questions.findAll({ where: { formId } });
 

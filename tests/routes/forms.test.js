@@ -35,4 +35,14 @@ describe('Testing get forms request', () => {
       expect(response.result.forms).not.toBe('undefined');
     });
   });
+
+  test('Response contains instance of array', () => {
+    const options = {
+      method: 'GET',
+      url: '/forms',
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.formValues).toBeInstanceOf(Array);
+    });
+  });
 });

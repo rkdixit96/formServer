@@ -1,4 +1,5 @@
 const Models = require('../../models');
+const Joi = require('joi');
 
 module.exports = [{
   method: 'GET',
@@ -10,5 +11,12 @@ module.exports = [{
         questions,
       });
     });
+  },
+  config: {
+    validate: {
+      params: {
+        formId: Joi.number().integer().required(),
+      },
+    },
   },
 }];
